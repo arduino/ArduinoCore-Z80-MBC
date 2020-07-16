@@ -1,0 +1,96 @@
+# This file is adapted from MightyCore
+# https://github.com/MCUdude/MightyCore
+
+# Menu options
+menu.BOD=BOD
+menu.LTO=Compiler LTO
+menu.pinout=Pinout
+menu.SerialBuf=Serial Port Buffers (RX/TX)
+
+# General
+z80_mbc.name=Z80 MBC
+z80_mbc.upload.tool=MightyCore:avrdude
+z80_mbc.upload.maximum_data_size=2048
+z80_mbc.bootloader.tool=MightyCore:avrdude
+z80_mbc.bootloader.unlock_bits=0x3f
+z80_mbc.bootloader.lock_bits=0x0f
+z80_mbc.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
+z80_mbc.bootloader.high_fuses=0b110{bootloader.ckopt_bit}011{bootloader.bootrst_bit}
+z80_mbc.build.core=MightyCore:MCUdude_corefiles
+z80_mbc.build.board=AVR_ATmega32
+z80_mbc.build.mcu=atmega32
+
+# Upload port select
+z80_mbc.upload.maximum_size=32256
+z80_mbc.upload.protocol=arduino
+z80_mbc.upload.port=UART0
+z80_mbc.bootloader.bootrst_bit=0
+z80_mbc.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
+
+z80_mbc.upload.speed=38400
+z80_mbc.bootloader.sut_cksel_bits=100100
+z80_mbc.bootloader.ckopt_bit=1
+z80_mbc.build.f_cpu=8000000L
+
+# Pinouts
+z80_mbc.menu.pinout.standard=Standard pinout
+z80_mbc.menu.pinout.standard.build.variant=MightyCore:standard
+z80_mbc.menu.pinout.standard.build.bootloader_led=B0
+z80_mbc.menu.pinout.bobuino=Bobuino pinout
+z80_mbc.menu.pinout.bobuino.build.variant=MightyCore:bobuino
+z80_mbc.menu.pinout.bobuino.build.bootloader_led=B7
+z80_mbc.menu.pinout.sanguino=Sanguino pinout
+z80_mbc.menu.pinout.sanguino.build.variant=MightyCore:sanguino
+z80_mbc.menu.pinout.sanguino.build.bootloader_led=B0
+
+# Brown out detection - This is the first part of the low fuse bit concatenation
+z80_mbc.menu.BOD.2v7=BOD 2.7V
+z80_mbc.menu.BOD.2v7.bootloader.bod_bits=10
+z80_mbc.menu.BOD.4v0=BOD 4.0V
+z80_mbc.menu.BOD.4v0.bootloader.bod_bits=00
+z80_mbc.menu.BOD.disabled=BOD disabled
+z80_mbc.menu.BOD.disabled.bootloader.bod_bits=11
+
+# Compiler link time optimization
+z80_mbc.menu.LTO.Os=LTO disabled
+z80_mbc.menu.LTO.Os.compiler.c.lto_flags=
+z80_mbc.menu.LTO.Os.compiler.c.elf.extra_flags=
+z80_mbc.menu.LTO.Os.compiler.cpp.lto_flags=
+z80_mbc.menu.LTO.Os.ltoarcmd=avr-ar
+
+z80_mbc.menu.LTO.Os_flto=LTO enabled
+z80_mbc.menu.LTO.Os_flto.compiler.c.lto_flags=-Wextra -flto -g
+z80_mbc.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+z80_mbc.menu.LTO.Os_flto.compiler.cpp.lto_flags=-Wextra -flto -g
+z80_mbc.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+z80_mbc.menu.SerialBuf.disabled=Default
+z80_mbc.menu.SerialBuf.disabled.compiler.c.sb_flags=
+z80_mbc.menu.SerialBuf.disabled.compiler.cpp.sb_flags=
+
+z80_mbc.menu.SerialBuf.SB64=64/64
+z80_mbc.menu.SerialBuf.SB64.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=64 -DSERIAL_TX_BUFFER_SIZE=64
+z80_mbc.menu.SerialBuf.SB64.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=64 -DSERIAL_TX_BUFFER_SIZE=64
+
+z80_mbc.menu.SerialBuf.SB128=128/128
+z80_mbc.menu.SerialBuf.SB128.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=128 -DSERIAL_TX_BUFFER_SIZE=128
+z80_mbc.menu.SerialBuf.SB128.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=128 -DSERIAL_TX_BUFFER_SIZE=128
+
+z80_mbc.menu.SerialBuf.SB12864=128/64
+z80_mbc.menu.SerialBuf.SB12864.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=128 -DSERIAL_TX_BUFFER_SIZE=64
+z80_mbc.menu.SerialBuf.SB12864.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=128 -DSERIAL_TX_BUFFER_SIZE=64
+
+z80_mbc.menu.SerialBuf.SB256=256/256
+z80_mbc.menu.SerialBuf.SB256.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=256
+z80_mbc.menu.SerialBuf.SB256.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=256
+
+z80_mbc.menu.SerialBuf.SB25664=256/64
+z80_mbc.menu.SerialBuf.SB25664.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=64
+z80_mbc.menu.SerialBuf.SB25664.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=64
+
+z80_mbc.menu.SerialBuf.SB25632=256/32
+z80_mbc.menu.SerialBuf.SB25632.compiler.c.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=32
+z80_mbc.menu.SerialBuf.SB25632.compiler.cpp.sb_flags=-DSERIAL_RX_BUFFER_SIZE=256 -DSERIAL_TX_BUFFER_SIZE=32
+
+z80_mbc.compiler.c.extra_flags={compiler.c.lto_flags} {compiler.c.sb_flags}
+z80_mbc.compiler.cpp.extra_flags={compiler.cpp.lto_flags} {compiler.cpp.sb_flags}
