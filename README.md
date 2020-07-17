@@ -7,10 +7,12 @@ This repository contains an extension to [MightyCore](https://github.com/MCUdude
 The main purpose of this repository is to show a less known feature of the Arduino cores, i.e. the ability to extend an existing core without copying and pasting everything. The referencing syntax allows to inherit the definitions from an existing core, and just add or override the desired things. Read the [documentation](https://arduino.github.io/arduino-cli/latest/platform-specification/#referencing-another-core-variant-or-tool) to learn more about extending cores.
 
 ### Installation
-- This platform has a dependency on MightyCore, so you must also install that platform, following the instructions here: https://github.com/MCUdude/MightyCore#how-to-install
-- Download ArduinoCore-Z80-MBC: https://github.com/bcmi-labs/ArduinoCore-Z80-MBC/archive/master.zip
-- Extract the downloaded file.
-- Move the extracted folder into the **hardware** subfolder of your sketchbook folder. You can find the location of your sketchbook folder in the Arduino IDE at **File > Preferences > Sketchbook location:**.
+
+This repo was created mainly for demonstration purposes so it's not part of the official Arduino core index. You'll need to install it manually:
+
+- This platform has a dependency on MightyCore so you must also install that platform, following its [instructions](https://github.com/MCUdude/MightyCore#how-to-install)
+- Download this platform from https://github.com/arduino/ArduinoCore-Z80-MBC/archive/master.zip
+- Extract the folder into the **hardware** subfolder of your sketchbook folder. You can find the location of your sketchbook folder in the Arduino IDE at **File > Preferences > Sketchbook location:**.
 - If the Arduino IDE is running then restart it.
 
 ### Usage
