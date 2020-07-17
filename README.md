@@ -2,9 +2,9 @@
 
 The [Z80-MBC](https://hackaday.io/project/19000-a-4-4ics-z80-homemade-computer-on-breadboard) is a mini Z80 system implemented by [Just4Fun](https://hackaday.io/Just4Fun) using an Atmega32A.
 
-This repository contains an extension to [MightyCore](https://github.com/MCUdude/MightyCore) by [MCUDude](https://github.com/MCUdude) which adds a menu item that allows users to select the serial buffer size limit from.
+This repository contains an extension to [MightyCore](https://github.com/MCUdude/MightyCore) by [MCUDude](https://github.com/MCUdude) which adds a menu item in the Arduino IDE that allows users to select the serial buffer size limit.
 
-The main purpose of this repository is to show a less known feature of the Arduino cores, i.e. the ability to extend an existing core without copying and pasting everything. The referencing syntax allows to inherit the definitions from an existing core, and just add or override the desired things.
+The main purpose of this repository is to show a less known feature of the Arduino cores, i.e. the ability to extend an existing core without copying and pasting everything. The referencing syntax allows to inherit the definitions from an existing core, and just add or override the desired things. Read the [documentation](https://arduino.github.io/arduino-cli/latest/platform-specification/#referencing-another-core-variant-or-tool) to learn more about extending cores.
 
 ### Installation
 - This platform has a dependency on MightyCore, so you must also install that platform, following the instructions here: https://github.com/MCUdude/MightyCore#how-to-install
